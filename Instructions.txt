@@ -1,0 +1,88 @@
+Fibonacci Solitaire - Prog 1
+CECS 325-01 – System Programming with C++
+Fall 2023
+Due: Wednesday Sept 20, 2023
+Welcome to Fibonacci Solitaire! This game uses one standard deck of cards. Here are the rules:
+1) Take the top card from the deck and place it face up on the table.
+2) The Sum is now the value of that card (Ace = 1, 2 = 2, ... 10 = 10, Jack = 10, Queen = 10, King = 10)
+3) If the Sum is a Fibonacci number, discard that pile, and start over at instruction #1
+4) If the Sum is not Fibonacci, take the next card from the top of the deck and place it on top of the card
+pile on the table.
+5) The Sum is now the sum of all cards in the pile on the table.
+6) Go to instruction #3.
+Continue to play the game, keeping track of how many piles you have created that are Fibonacci.
+If the last card from the deck gives you a Fibonacci pile, then you win! Write the word “Winner” on the screen
+and show how many Fibonacci piles there were.
+If the last card from the deck does not give you a Fibonacci pile, then you lose. Write the word “Loser” on the
+screen.
+These 2 screen shots show possible winner and loser hands. When you acquire a Fibonacci pile, print out the
+value (Fibonacci number) and start over on the next line.
+
+You will have 2 classes:
+1) The Deck class which will create and manage the deck of cards
+2) The Card class which create and manage cards
+The main logic of the program will be in the main function. You will use the Card class and the Deck class to
+play the game.
+Here the methods you will need to create. You are restricted to using these functions only.
+public class Deck
+public Deck( ) // constructor which creates a deck of 52 cards. Ace of Spades on top, followed by the
+rest of the spades in order, followed by Hearts, Diamonds and Clubs.
+public void newDeck(); // reset the deck so it looks like a new deck.
+public Card deal( ) // deal a card from the top of the deck.
+public void shuffle( ) // shuffle the cards in the deck.
+public bool isEmpty( ) // true is deck is empty, false if the deck is not empty
+public void show( ); // show all the cards in the deck: 13 columns and 4 rows.
+public class Card
+public Card( ) // create a “default” card which will be a Joker
+public Card( char r, char s ) // constructor to create a card, setting the rank and suit
+public int getValue( ) // return the point value of the card. Ace = 1, 2 thru 10, Jack = 10, Queen = 10,
+King = 10, Joker = 0
+public void show( ) // show the card using 2 fields... Ace of Spade:AS, Ten of Diamond:10D, Queen of
+Heart:QH, Three of Club:3C. (If you want to get fancy, you can use these symbols for the suit ♠, ♣, ♥, ♦). The
+Joker will be XX – by the way – you should never see a Joker in the deck.
+In the main function, you will have a menu that looks like this:
+Welcome to Fibonacci Solitaire!
+1) Create New Deck
+2) Display Deck
+3) Shuffle Deck
+4) Play Fibo Solitaire
+Internal
+5) Win Fibo Solitaire
+6) Exit
+Create New Deck will create an unshuffled deck in the following order: Spades, Hearts, Diamonds, Clubs...
+Ace, 2, 3, ..., 10, Jack, Queen, King
+Display Deck will display all cards in a grid: 13 columns by 4 rows.
+Shuffle Deck will randomly shuffle all cards in the deck.
+Play Fibo Solitaire will play the game as described above.
+Win Fibo Solitaire will automatically continue to play until the person wins and also keep track of how many
+games were played to get the win
+Exit will exit the program.
+You must create your own function to shuffle (cannot use the random_shuffle provided by C++) and you must
+create your own function called isFibo(int) You must use a vector to store the deck. You are not allowed to use
+an array.
+Submitting your program:
+On the due date, you will submit 5 files to the Canvas dropbox:
+ Solitaire.cpp (The main program)
+ Deck.cpp
+ Deck.h
+ Card.cpp
+ Card.h
+You will also submit the following screenshots:
+ A shuffled deck
+ A winning game
+ A losing game
+Submit the source code – DO NOT submit a zip file. Late program will lose 10 points.
+VIM hints
+Within vim, you can open a new tab for editing with :tabedit can.h
+You can open multiple tabs from the command line...
+$ vim -p can.cpp can.h candriver.cpp  this will open three files
+You can cycle through tabs in Command mode gt, gT, 1gt, 2gt, 3gt
+Internal
+Objectives:
+1) Understand how to create classes
+2) Learn how to use vectors and arrays in C++
+3) Learn how to use header files and .cpp file as separate files.
+4) Learn about preprocessor directives, #include libraries, and “using namespace std”
+5) Learn how to protect header files by using #ifndef, #define, #endif
+6) Introduce the rand() function for shuffling cards
+7) Get a random number within a range of numbers
