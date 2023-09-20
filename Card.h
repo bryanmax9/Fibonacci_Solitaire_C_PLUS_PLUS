@@ -6,60 +6,55 @@
 // I certify that this program is my own original work. I did not copy any part of this program from
 // any other source. I further certify that I typed each and every line of code in this program.
 
-
-//These preprocessors will allow us to avoid double inclusion(Only for one .cpp file to use this header and not multiple files)
-
-//This creates the CARD_H when the Card class use it
 #ifndef CARD_H
-//This next line will ensure that since we already created the CARD_H then we will not do that for another file
 #define CARD_H
 
-//user defined data types categories (we will use the number index position)
+// Enum representing the various suits of a card.
 enum Suit {
-	SPADES,
-	HEARTS,
-	DIAMONDS,
-	CLUBS,
-	NO_SUIT
+    SPADES,
+    HEARTS,
+    DIAMONDS,
+    CLUBS,
+    NO_SUIT // Represents cards like Joker which don't have a traditional suit.
 };
 
-//same for the Rank
+// Enum representing the various ranks of a card.
 enum Rank {
-	ACE,
-	TWO,
-	THREE,
-	FOUR,
-	FIVE,
-	SIX,
-	SEVEN,
-	EIGHT,
-	NINE,
-	TEN,
-	JACK,
-	QUEEN,
-	KING,
-	JOKER
+    ACE,
+    TWO,
+    THREE,
+    FOUR,
+    FIVE,
+    SIX,
+    SEVEN,
+    EIGHT,
+    NINE,
+    TEN,
+    JACK,
+    QUEEN,
+    KING,
+    JOKER // Represents a Joker card.
 };
 
-//On this header file we will specify all functions that the class will perform and the variables that will store
+// Class representing a playing card.
 class Card {
-	private:
-		Suit suit;
-		Rank rank;
-	public:
-		//defining the contructors
-		//This one for the joker card
-		Card();
+private:
+    Suit suit; // The suit of the card.
+    Rank rank; // The rank of the card.
 
-		//create specific cards if given parameter
-		Card(Rank r,Suit s);
+public:
+    // Default constructor: Represents a Joker card.
+    Card();
 
-		//functions inside the class
-		int getValue();
-		void show();
+    // Constructor: Initializes a card with a given rank and suit.
+    Card(Rank r, Suit s);
 
+    // Returns the value of the card.
+    int getValue();
 
+    // Displays the card to the console.
+    void show();
 };
 
-#endif //for CARD_HCard();
+#endif // for CARD_H
 
